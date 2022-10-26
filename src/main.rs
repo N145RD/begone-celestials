@@ -1,7 +1,13 @@
+use reqwest::*;
+
 fn main() {
-    println!("Hello, World!");
+    get_id("test");
 }
 
-fn verify_player(player: &'static str) -> Result<(), ()> {
-    Ok(())
+fn get_id(name: &'static str) -> Result<&str> {
+    let url = "ratingupdate.info/?name={}".to_owned() + name;
+    let namelist = reqwest::blocking::get(url);
+
+    println!("{:#?}", namelist);
+    Ok("ok")
 }

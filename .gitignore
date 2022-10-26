@@ -1,2 +1,4 @@
 verifier/*
+target/*
 *.lock
+*.swp
